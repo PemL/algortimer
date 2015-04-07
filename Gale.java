@@ -23,7 +23,6 @@ class Gale {
 					numberOfPairs = Integer.parseInt(numberOfPairsTemp[1]);
 					break;
 				}
-
 			}
 
 		}
@@ -65,17 +64,14 @@ class Gale {
 				int[] mTempSorted = normalizeArray(mTemp, numberOfPairs);
 				for (int i = 0; i < mTemp.length - 1; i++) {
 					menPref[menCount][i] = mTempSorted[i];
-//					System.out.println(menPref[menCount][i - 1]);
+					// System.out.println(menPref[menCount][i - 1]);
 
 				}
 				menCount++;
 			}
 		}
-		System.out.println(ranking[1][1]);
-		System.out.println(ranking[0][0]);
-		 System.out.println(menPref[1][1]);
-		 System.out.println(menPref[2][0]);
-
+		new lab1().algorithm(womenNames, menNames, ranking, menPref,
+				numberOfPairs);
 	}
 
 	int[] normalizeArray(String[] temp, int n) {
@@ -84,10 +80,11 @@ class Gale {
 		while (n > 0) {
 			for (int i = 2; i < temp.length; i++) {
 				int newNumber = Integer.parseInt(temp[i]);
-//				System.out.println(newNumber + " " + Integer.parseInt(temp[maxIndex]));
+				// System.out.println(newNumber + " " +
+				// Integer.parseInt(temp[maxIndex]));
 				if (newNumber > Integer.parseInt(temp[maxIndex])) {
 					maxIndex = i;
-//					System.out.println(maxIndex + " maxindex");
+					// System.out.println(maxIndex + " maxindex");
 				}
 
 			}
@@ -98,8 +95,8 @@ class Gale {
 		}
 		for (int i = 0; i < normArray.length; i++) {
 
-//			System.out.println(normArray[i]);
-//			System.out.println(normArray.length + "size");
+			// System.out.println(normArray[i]);
+			// System.out.println(normArray.length + "size");
 
 		}
 		return normArray;
