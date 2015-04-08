@@ -41,17 +41,11 @@ public class Lab1 {
 				}
 			}
 		}
-		PrintWriter writer = null;
-		try {
-			writer = new PrintWriter(fileName + ".out", "UTF-8");
-		} catch (IOException ex) {
-		}
 
 		for (int i = 0; i < currentW.length; i++) {
 
-			writer.println(menNames[i] + " -- " + womenNames[currentM[i]]);
+			System.out.println(menNames[i] + " -- " + womenNames[currentM[i]]);
 		}
-		writer.close();
 
 	}
 }
