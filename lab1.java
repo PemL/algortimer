@@ -1,7 +1,9 @@
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class lab1 {
+public class Lab1 {
 
 	String[] menNames;
 	String[] womenNames;
@@ -9,9 +11,8 @@ public class lab1 {
 	int[][] ranking;
 
 	public void algorithm(String[] womenNames, String[] menNames,
-			int[][] ranking, int[][] menPref, int numberOfPairs) {
+			int[][] ranking, int[][] menPref, int numberOfPairs, String fileName) {
 		LinkedList<Integer> freeMen = new LinkedList<Integer>();
-
 		for (int i = 0; i < numberOfPairs; i++) {
 			freeMen.add(i);
 		}
@@ -40,10 +41,17 @@ public class lab1 {
 				}
 			}
 		}
+		PrintWriter writer = null;
+		try {
+			writer = new PrintWriter(fileName + ".out", "UTF-8");
+		} catch (IOException ex) {
+		}
 
 		for (int i = 0; i < currentW.length; i++) {
-			System.out.println(menNames[i] + " -- " + womenNames[currentM[i]]);
+
+			writer.println(menNames[i] + " -- " + womenNames[currentM[i]]);
 		}
+		writer.close();
 
 	}
 }

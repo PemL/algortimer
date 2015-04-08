@@ -70,8 +70,9 @@ class Gale {
 				menCount++;
 			}
 		}
-		new lab1().algorithm(womenNames, menNames, ranking, menPref,
-				numberOfPairs);
+		String fileNameSplitted = fileName.split("\\.")[0];;
+		new Lab1().algorithm(womenNames, menNames, ranking, menPref,
+				numberOfPairs, fileNameSplitted);
 	}
 
 	int[] normalizeArray(String[] temp, int n) {
