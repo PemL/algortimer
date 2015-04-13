@@ -1,0 +1,32 @@
+import java.util.regex.Pattern;
+
+public class Lab2 {
+	String word1 = "there";
+	String word2 = "which";
+	String word3 = "their";
+	String word4 = "about";
+	String word5 = "these";
+	String word6 = "words";
+	String word7 = "would";
+	String word8 = "other";
+	String word9 = "write";
+	String word10 = "could";
+
+	public static void main(String arg[]) {
+		new Lab2().run();
+
+	}
+
+	public void run() {
+		boolean match = word1.contains("g") && word1.contains("f")
+				&& word1.contains("d") && word1.contains("c")
+				&& word1.contains("b");
+		if (match) {
+			System.out.println("word 1 matched");
+		}
+		match = Pattern.matches(word2, "bcdfg");
+		if (match) {
+			System.out.println("word 2 matched");
+		}
+	}
+}

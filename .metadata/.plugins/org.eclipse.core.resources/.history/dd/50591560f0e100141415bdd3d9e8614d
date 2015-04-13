@@ -1,0 +1,17 @@
+import java.util.regex.Pattern;
+
+public class Lab2 {
+	static String word1 = "bcdfg";
+	static String word2 = "cdfg";
+
+	public static void main(String arg[]) {
+		boolean match = Pattern.matches(word1, "bcdfg");
+		if (match) {
+			System.out.println("word 1 matched");
+		}
+		match = Pattern.matches(word2, "[b&&c&&d&&f&&g]");
+		if (match) {
+			System.out.println("word 2 matched");
+		}
+	}
+}

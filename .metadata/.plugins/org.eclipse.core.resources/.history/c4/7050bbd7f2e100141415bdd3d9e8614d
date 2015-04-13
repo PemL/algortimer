@@ -1,0 +1,23 @@
+import java.util.regex.Pattern;
+
+public class Lab2 {
+	static String word1 = "there";
+	static String word2 = "which";
+	static String word3 = "their";
+	static String word4 = "about";
+	static String word5 = "these";
+	static String word6 = "words";
+	static String word7 = "would";
+	static String word8 = "other";
+	static String word9 = "write";
+	static String word10 = "could";
+	
+	public static void main(String arg[]) {
+		Lab2.run();
+		
+	}
+	
+	public void run() {
+		
+	}
+}

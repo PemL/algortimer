@@ -1,0 +1,51 @@
+import java.util.LinkedList;
+
+public class Lab2 {
+	String word1 = "there";
+	String word2 = "which";
+	String word3 = "their";
+	String word4 = "about";
+	String word5 = "these";
+	String word6 = "words";
+	String word7 = "would";
+	String word8 = "other";
+	String word9 = "write";
+	String word10 = "could";
+
+	String[] word;
+	LinkedList<Integer>[] adj;
+
+	public static void main(String arg[]) {
+		new Lab2().run();
+
+	}
+
+	public void run() {
+		word = new String[] { word1, word2, word3, word4, word5, word6, word7,
+				word8, word9, word10 };
+		adj = new LinkedList[word.length];
+
+		for (int i = 0; i < adj.length; i++) {
+			adj[i] = new LinkedList<Integer>();
+		}
+		boolean[] disc = new boolean[]{false,false,false,false};
+		for (int i = 0; i < word.length; i++) {
+			for (int k = 0; k < word.length; k++) {
+				for (int n = 0; n < 4; n++) {
+					if (word[k].indexOf(word[i].charAt(n + 1)) != -1
+							&& disc[n] == false) {
+						disc[n] = true;
+						adj[i].addLast(k);
+					}
+				}
+
+			}
+
+		}
+		for (int i = 0; i < adj.length; i++) {
+			for (int k = 0; k < adj[i].size(); k++) {
+				System.out.println(i + " " + word[adj[i].get(k)]);
+			}
+		}
+	}
+}
