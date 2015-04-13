@@ -45,8 +45,8 @@ public class Lab2 {
 									positionIndex[letterExists]);
 							if (checkForMultiples != -1) {
 								count++;
-								positionIndex[letterExists] = checkForMultiples + 1;
-								System.out.println(checkForMultiples + " i = " + i
+								positionIndex[letterExists] = checkForMultiples;
+								System.out.println(letterExists + " i = " + i
 										+ " k = " + k + " count = " + count);
 							}
 						}

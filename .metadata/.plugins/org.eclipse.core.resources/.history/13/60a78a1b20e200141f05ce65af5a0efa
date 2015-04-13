@@ -43,12 +43,11 @@ public class Lab2 {
 							checkForMultiples = word[k].indexOf(
 									word[i].charAt(n + 1),
 									positionIndex[letterExists]);
-							if (checkForMultiples != -1) {
+							if (checkForMultiples != -1)
 								count++;
-								positionIndex[letterExists] = checkForMultiples + 1;
-								System.out.println(checkForMultiples + " i = " + i
-										+ " k = " + k + " count = " + count);
-							}
+							positionIndex[letterExists] = n + 1;
+							System.out.println(letterExists + " i = " + i
+									+ " k = " + k + " count = " + count);
 						}
 					}
 				if (count == 4) {

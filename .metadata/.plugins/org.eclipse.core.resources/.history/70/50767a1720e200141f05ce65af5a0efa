@@ -35,20 +35,19 @@ public class Lab2 {
 				int[] positionIndex = new int[] { 0, 0, 0, 0, 0 };
 				int count = 0;
 				letterExists = 0;
-				checkForMultiples = 0;
 				if (k != i)
 					for (int n = 0; n < 4; n++) {
 						letterExists = word[k].indexOf(word[i].charAt(n + 1));
 						if (letterExists != -1) {
-							checkForMultiples = word[k].indexOf(
-									word[i].charAt(n + 1),
-									positionIndex[letterExists]);
-							if (checkForMultiples != -1) {
-								count++;
-								positionIndex[letterExists] = checkForMultiples + 1;
-								System.out.println(checkForMultiples + " i = " + i
-										+ " k = " + k + " count = " + count);
-							}
+							checkForMultiples = word[k].indexOf(word[i].charAt(n + 1), positionIndex[letterExists]);
+							count++;
+							positionIndex[letterExists] = n + 1;
+							System.out.println(letterExists
+									+ " i = "
+									+ i
+									+ " k = "
+									+ k
+									+ " count = " + count);
 						}
 					}
 				if (count == 4) {

@@ -32,7 +32,7 @@ public class Lab2 {
 		}
 		for (int i = 0; i < word.length; i++) {
 			for (int k = 0; k < word.length; k++) {
-				int[] positionIndex = new int[] { 0, 0, 0, 0, 0 };
+				int[] positionIndex = new int[] { 0, 0, 0, 0};
 				int count = 0;
 				letterExists = 0;
 				checkForMultiples = 0;
