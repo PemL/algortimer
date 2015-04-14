@@ -1,23 +1,12 @@
 import java.util.LinkedList;
 
 public class Graph {
-	String word1 = "there";
-	String word2 = "which";
-	String word3 = "their";
-	String word4 = "about";
-	String word5 = "these";
-	String word6 = "words";
-	String word7 = "would";
-	String word8 = "other";
-	String word9 = "write";
-	String word10 = "could";
 
-	String[] word;
+
 	LinkedList<Integer>[] adj;
 
-	public LinkedList[] run() {
-		word = new String[] { word1, word2, word3, word4, word5, word6, word7,
-				word8, word9, word10 };
+	public LinkedList[] run(String[] word) {
+
 		adj = new LinkedList[word.length];
 
 		int letterExists = 0;
@@ -41,10 +30,10 @@ public class Graph {
 							if (checkForMultiples != -1) {
 								count++;
 								positionIndex[letterExists] = checkForMultiples + 1;
-								System.out
-										.println(checkForMultiples + " i = "
-												+ i + " k = " + k + " count = "
-												+ count);
+//								System.out
+//								.println(checkForMultiples + " i = "
+//										+ i + " k = " + k + " count = "
+//										+ count);
 							}
 						}
 					}

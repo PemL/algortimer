@@ -1,6 +1,9 @@
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Stack;
+import java.util.Queue;
+import java.util.Scanner;
 
 public class Lab2 {
 	LinkedList<Integer>[] adj;
@@ -9,44 +12,57 @@ public class Lab2 {
 	int firstWord;
 	int secondWord;
 	int nbrOfSteps;
-	
+	int amountOfWords;
+	int countDistanceWordPosition = 0;
 	String[] word;
-	Stack<String> wordToCompare;
-	
+	Queue<Integer> comparingWords;
+
 	HashMap<String, Integer> map;
 
-	public static void main(String arg[]) {
-		new Lab2().start();
+	public static void main(String arg[]) throws IOException {
+		new Lab2().run(arg[0], arg[1]);
+
 	}
 
-	
-	
-	public void run() {
-		//read input and create array /hashmap of words
-		//read first-last word input and insert to an array and hashmap
+	public void run(String fileNameWords, String fileNameWordDistance)
+			throws IOException {
+		Scanner sc = new Scanner(new FileInputStream(fileNameWords));
+		amountOfWords = Integer.parseInt(fileNameWords.replaceAll("[\\D]", ""));
+		map = new HashMap<String, Integer>(amountOfWords);
+		int count = 0;
+		word = new String[amountOfWords];
+		while (sc.hasNext()) {
+			String currentString = sc.nextLine();
+			map.put(currentString, count);
+			word[count] = currentString;
+			count++;
+		}
+
+		// read first-last word input and insert to an array and hashmap
+		Scanner sc2 = new Scanner(new FileInputStream(fileNameWordDistance));
+		String[] currentString;
+		comparingWords = new LinkedList<Integer>();
+		while (sc2.hasNext()) {
+			currentString = sc2.nextLine().split(" ");
+			comparingWords.offer(map.get(currentString[0]));
+			comparingWords.offer(map.get(currentString[1]));
+		}
+		
+		start();
 	}
+
 	public void start() {
 		graph = new Graph();
 		bfs = new BFS();
-		adj = graph.run();
+		adj = graph.run(word);
 
-		while (wordInput()) {
-			firstWord = getNextWord();
-			secondWord = getNextWord();
-//			nbrOfSteps = bfs.run(adj, firstWord, secondWord, word.length);
-			nbrOfSteps = bfs.run(adj, 9, 6, 10);
-			System.out.println(nbrOfSteps);
+		while (!comparingWords.isEmpty()) {
+			firstWord = comparingWords.poll();
+			secondWord = comparingWords.poll();
+			 nbrOfSteps = bfs.run(adj, firstWord, secondWord, amountOfWords);
+			 System.out.println(nbrOfSteps);
 		}
 	}
 
-	public boolean wordInput() {
-		return true; //check if wordToCompare is not empty ()
-	}
-
-	public int getNextWord() {
-		 //if mod%2 get wordToCompare[count++]
-		// convert word/string to number(id) with hashmap
-		return 0;
-	}
 
 }

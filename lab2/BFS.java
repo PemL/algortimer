@@ -15,30 +15,36 @@ public class BFS {
 
 	public int run(LinkedList<Integer>[] adj, int firstWord, int secondWord,
 			int amountOfWords) {
+		if (firstWord == secondWord) {
+			return 0;
+		}
 		int distance = -1;
 		int countLevel = 0;
-		levelList = new LinkedList[10];
+		levelList = new LinkedList[20];
 		discovered = new boolean[amountOfWords];
 		levelList[0] = new LinkedList<Integer>();
 		levelList[0].offer(firstWord);
 		while (!levelList[countLevel].isEmpty()) {
 			levelList[countLevel + 1] = new LinkedList<Integer>();
-			int currentNode = levelList[countLevel].poll();
-			LinkedList<Integer> nodeList = adj[currentNode];
-			for (Integer newNode : nodeList) {
-				if (!discovered[newNode]) {
+			do {
+				int currentNode = levelList[countLevel].poll();
+				LinkedList<Integer> nodeList = adj[currentNode];
+				for (Integer newNode : nodeList) {
+					if (!discovered[newNode]) {
+						// System.out.println(newNode);
 
-					if (newNode == secondWord) {
-						distance = countLevel + 1;
-//						System.out.println(distance+" distance");
+						if (newNode == secondWord) {
+							distance = countLevel + 1;
+							// System.out.println(distance+" distance");
+						}
+						discovered[newNode] = true;
+						levelList[countLevel + 1].offer(newNode);
 					}
-					discovered[newNode] = true;
-					levelList[countLevel + 1].offer(newNode);
 				}
-			}
-//			System.out.println(countLevel+" testing");
-
+			} while (!levelList[countLevel].isEmpty());
 			countLevel++;
+			// System.out.println(countLevel +" testing");
+
 		}
 		return distance;
 	}

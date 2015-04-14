@@ -1,0 +1,78 @@
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Lab2 {
+	LinkedList<Integer>[] adj;
+	Graph graph;
+	BFS bfs;
+	int firstWord;
+	int secondWord;
+	int nbrOfSteps;
+	int amountOfWords;
+	String[] word;
+	Queue<String> comparingWords;
+
+	HashMap<String, Integer> map;
+
+	public static void main(String arg[]) throws IOException {
+		new Lab2().run(arg[0], arg[1]);
+	}
+
+	public void run(String fileNameWords, String fileNameWordDistance)
+			throws IOException {
+		Scanner sc = new Scanner(new FileInputStream(fileNameWords));
+		amountOfWords = Integer.parseInt(fileNameWords.replaceAll("[\\D]", ""));
+		map = new HashMap<String, Integer>(amountOfWords);
+		int count = 0;
+		word = new String[amountOfWords];
+		while (sc.hasNext()) {
+			String currentString = sc.nextLine();
+			map.put(currentString, count);
+			word[count] = currentString;
+			count++;
+		}
+
+		// read first-last word input and insert to an array and hashmap
+		Scanner sc2 = new Scanner(new FileInputStream(fileNameWordDistance));
+		String[] currentString;
+		while (sc2.hasNext()) {
+			currentString = sc2.nextLine().split(" ");
+			comparingWords.offer(currentString[0]);
+			comparingWords.offer(currentString[1]);
+
+			
+			// add comparingWords to array of words we are comparing
+			// from that array, change words to numbers
+			
+		}
+	}
+
+	public void start() {
+		graph = new Graph();
+		bfs = new BFS();
+		adj = graph.run();
+
+		while (wordInput()) {
+			firstWord = getNextWord();
+			secondWord = getNextWord();
+			// nbrOfSteps = bfs.run(adj, firstWord, secondWord, word.length);
+			nbrOfSteps = bfs.run(adj, 9, 6, amountOfWords);
+			System.out.println(nbrOfSteps);
+		}
+	}
+
+	public boolean wordInput() {
+		return true; // check if wordToCompare is not empty ()
+	}
+
+	public int getNextWord() {
+		// if mod%2 get wordToCompare[count++]
+		// convert word/string to number(id) with hashmap
+		return 0;
+	}
+
+}
