@@ -1,0 +1,51 @@
+import java.util.HashMap;
+import java.util.LinkedList;
+
+public class Lab2 {
+	LinkedList<Integer>[] adj;
+	Graph graph;
+	BFS bfs;
+	int firstWord;
+	int secondWord;
+	int nbrOfSteps;
+	
+	String[] word;
+	String[] wordToCompare;
+	
+	HashMap<String, Integer> map;
+
+	public static void main(String arg[]) {
+		new Lab2().run();
+	}
+
+	
+	
+	public void run() {
+		//read input and create array /hashmap of words
+		//read first-last word input and insert to an array
+	}
+	public void start() {
+		graph = new Graph();
+		bfs = new BFS();
+		adj = graph.run();
+
+		while (wordInput()) {
+			firstWord = getNextFirstWord();
+			secondWord = getNextSecondWord();
+			nbrOfSteps = bfs.run(adj, firstWord, secondWord);
+		}
+	}
+
+	public boolean wordInput() {
+		return true;
+	}
+
+	public int getNextFirstWord() {
+		return 0;
+	}
+
+	public int getNextSecondWord() {
+		return 0;
+	}
+
+}

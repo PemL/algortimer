@@ -1,0 +1,6 @@
+
+public class BFS {
+	public int run()Ê{
+		return 0;
+	}
+}

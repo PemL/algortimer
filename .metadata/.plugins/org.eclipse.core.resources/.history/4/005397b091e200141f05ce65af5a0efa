@@ -1,0 +1,16 @@
+import java.util.LinkedList;
+
+
+public class BFS {
+	
+	int secondWord;
+	int firstWord;
+	LinkedList<Integer>[] adj;
+	
+	boolean[] discovered;
+	
+	public int run(LinkedList<Integer>[] adj, int firstWord, int secondWord, int amountOfWords) {
+		
+		return 0;
+	}
+}

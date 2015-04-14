@@ -1,0 +1,9 @@
+
+public class BFS {
+	
+	int secondWord;
+	int firstWord;
+	public int run(LinkedList<Integer>[] adj, firstWord, secondWord) {
+		return 0;
+	}
+}

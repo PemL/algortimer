@@ -1,0 +1,19 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+
+public class BFS {
+	
+	int amountOfWords;
+	int secondWord;
+	int firstWord;
+	LinkedList<Integer>[] adj;
+	
+	boolean[] discovered;
+	
+	public int run(LinkedList<Integer>[] adj, int firstWord, int secondWord, int amountOfWords) {
+		discovered = new boolean[amountOfWords];
+		Queue queue = new Queue<Integer>();
+		return 0;
+	}
+}

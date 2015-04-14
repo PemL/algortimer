@@ -1,0 +1,36 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class BFS {
+
+	int amountOfWords;
+	int secondWord;
+	int firstWord;
+	LinkedList<Integer>[] adj;
+	LinkedList<Integer> temp;
+	Queue<Integer>[] levelList;
+	boolean[] discovered;
+
+	Queue currentLevelList;
+
+	public int run(LinkedList<Integer>[] adj, int firstWord, int secondWord,
+			int amountOfWords) {
+		int countLevel = 0;
+		levelList = new LinkedList[10];
+		discovered = new boolean[amountOfWords];
+		levelList[0].offer(firstWord);
+
+		while (!levelList[countLevel].isEmpty()) {
+			currentLevelList = levelList[countLevel];
+			for (int i = 0; i < currentLevelList.size(); i++) {
+				if (!discovered[currentLevelList.poll]) {
+					
+				}
+					
+			}
+
+		}
+
+		return 0;
+	}
+}

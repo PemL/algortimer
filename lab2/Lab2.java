@@ -1,68 +1,52 @@
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class Lab2 {
-	String word1 = "there";
-	String word2 = "which";
-	String word3 = "their";
-	String word4 = "about";
-	String word5 = "these";
-	String word6 = "words";
-	String word7 = "would";
-	String word8 = "other";
-	String word9 = "write";
-	String word10 = "could";
-
-	String[] word;
 	LinkedList<Integer>[] adj;
+	Graph graph;
+	BFS bfs;
+	int firstWord;
+	int secondWord;
+	int nbrOfSteps;
+	
+	String[] word;
+	Stack<String> wordToCompare;
+	
+	HashMap<String, Integer> map;
 
 	public static void main(String arg[]) {
-		new Lab2().run();
-
+		new Lab2().start();
 	}
 
+	
+	
 	public void run() {
-		word = new String[] { word1, word2, word3, word4, word5, word6, word7,
-				word8, word9, word10 };
-		adj = new LinkedList[word.length];
+		//read input and create array /hashmap of words
+		//read first-last word input and insert to an array and hashmap
+	}
+	public void start() {
+		graph = new Graph();
+		bfs = new BFS();
+		adj = graph.run();
 
-		int letterExists = 0;
-		int checkForMultiples = 0;
-		for (int i = 0; i < adj.length; i++) {
-			adj[i] = new LinkedList<Integer>();
-		}
-		for (int i = 0; i < word.length; i++) {
-			for (int k = 0; k < word.length; k++) {
-				int[] positionIndex = new int[] { 0, 0, 0, 0, 0 };
-				int count = 0;
-				letterExists = 0;
-				checkForMultiples = 0;
-				if (k != i)
-					for (int n = 0; n < 4; n++) {
-						letterExists = word[k].indexOf(word[i].charAt(n + 1));
-						if (letterExists != -1) {
-							checkForMultiples = word[k].indexOf(
-									word[i].charAt(n + 1),
-									positionIndex[letterExists]);
-							if (checkForMultiples != -1) {
-								count++;
-								positionIndex[letterExists] = checkForMultiples + 1;
-								System.out.println(checkForMultiples + " i = " + i
-										+ " k = " + k + " count = " + count);
-							}
-						}
-					}
-				if (count == 4) {
-					adj[i].addLast(k);
-				}
-
-			}
-
-		}
-		for (int i = 0; i < adj.length; i++) {
-			System.out.println(i + " " + word[i]);
-			for (int k = 0; k < adj[i].size(); k++) {
-				System.out.println(i + " " + word[adj[i].get(k)]);
-			}
+		while (wordInput()) {
+			firstWord = getNextWord();
+			secondWord = getNextWord();
+//			nbrOfSteps = bfs.run(adj, firstWord, secondWord, word.length);
+			nbrOfSteps = bfs.run(adj, 9, 6, 10);
+			System.out.println(nbrOfSteps);
 		}
 	}
+
+	public boolean wordInput() {
+		return true; //check if wordToCompare is not empty ()
+	}
+
+	public int getNextWord() {
+		 //if mod%2 get wordToCompare[count++]
+		// convert word/string to number(id) with hashmap
+		return 0;
+	}
+
 }

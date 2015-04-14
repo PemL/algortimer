@@ -1,0 +1,40 @@
+import java.util.LinkedList;
+
+
+public class Lab2 {
+	LinkedList<Integer>[] adj;
+	Graph graph;
+	BFS bfs;
+	int firstWord;
+	int secondWord;
+	int nbrOfSteps;
+	
+	public static void main(String arg[]) {
+		new Lab2().run();
+	}
+	public void run() {
+		graph = new Graph();
+		bfs = new BFS();
+		adj = graph.run();
+		
+		while (wordInput()) {
+			firstWord = getNextFirstWord();
+			secondWord = getNextSecondWord();
+			nbrOfSteps= bfs.run(adj, firstWord, secondWord);
+		}
+	}
+	
+	public boolean wordInput() {
+		return true;
+	}
+	
+	public int getNextFirstWord() {
+		return 0;
+		
+	}
+	public int getNextSecondWord() {
+		return 0;
+		
+	}
+	
+}
