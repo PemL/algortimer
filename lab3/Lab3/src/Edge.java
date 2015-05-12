@@ -1,9 +1,10 @@
 
 class Edge implements Comparable<Edge>
 {
-    int v1,v2,w; 
+    String v1,v2;
+    int w;
 
-    Edge(int v1, int v2, int w)
+    Edge(String v1, String v2, int w)
     {
         this.v1=v1;
         this.v2=v2;

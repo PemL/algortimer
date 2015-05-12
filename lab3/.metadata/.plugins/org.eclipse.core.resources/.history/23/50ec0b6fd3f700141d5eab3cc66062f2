@@ -1,0 +1,32 @@
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Lab3 {
+	public static void main(String[] args) throws IOException {
+		new Lab3().run(args[0]);
+	}
+
+	HashMap<String, Set<String>> cityMap;
+
+	public void run(String fileName) throws IOException {
+		Scanner sc = new Scanner(new FileInputStream(fileName));
+		cityMap = new HashMap<String, Set<String>>();
+		while (sc.hasNext()) {
+			String currentString = sc.nextLine();
+			if (!currentString.contains("[")) {
+				Set<String> set = new HashSet<String>();
+				set.add(currentString);
+				cityMap.put(currentString, set);
+			}
+			else {
+			String[] splitFromDashes = currentString.split("--"); 	// d0 contains city1
+			String[] splitFromBracket = splitFromDashes[1].split("[");				// e0 contains city2'
+			//splitFromBracket[1] = splitFromBracket[1].substring(0, splitFromBracket[1].length()-1);	// e1 contains weight without ]
+			}
+		}
+	}
+}

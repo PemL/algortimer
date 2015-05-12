@@ -1,0 +1,14 @@
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Scanner;
+
+
+public class Lab3 {
+	public static void main(String[] args) throws IOException{
+		new Lab3().run(args[0]);
+	}
+	
+	public void run(String fileName) {
+		Scanner sc = new Scanner(new FileInputStream(fileName));
+	}
+}
